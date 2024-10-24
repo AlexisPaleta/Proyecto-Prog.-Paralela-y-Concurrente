@@ -22,7 +22,7 @@ class Departamento{
 
         // Creacion de los residentes de la vivienda
         residentes = new Roomie[] {
-            new Estudiante("Juan", appliances, YELLOW),
+            new Estudiante("Juan", appliances, BLACK),
             new Estudiante("Pedro", appliances, RED),
             new Estudiante("Elisa", appliances, GREEN)
         };

@@ -12,7 +12,7 @@ class Cafetera extends Electrodomestico{
         while(true){
             if (disponible.availablePermits() < 5){
                 Thread.sleep(2000);
-                System.out.println("~~~~~~ Cafetera llena ~~~~~ Ahora hay estas unidades de cafe" + disponible.availablePermits() );
+                System.out.println("~~~~~~ Cafetera llena ~~~~~ Ahora hay estas unidades de cafe " + disponible.availablePermits() );
 
                 disponible.release();
             }
