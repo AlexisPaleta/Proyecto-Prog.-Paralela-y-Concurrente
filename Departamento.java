@@ -37,4 +37,7 @@ class Departamento{
         appliances[0].start();
     }
 
+    public Roomie[] getResidentes(){
+        return this.residentes;
+    }
 }
