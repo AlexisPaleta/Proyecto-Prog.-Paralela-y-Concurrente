@@ -8,7 +8,7 @@ class Roomie extends Thread{
     int [] Tarde;
     int [] Noche;
     int [] horario;
-    int totalDeTareas;
+    int totalDeTareas, tareasRestantes;
     String FaseDelDia = "Manana";
     int k = 0; //Esta variable se define aqui para que se pueda utilizar en el metodo run, ya que como ahora el ciclo infinito esta
     //en la clase del esudiante, se define desde aqui el indice que se va a utilizar para recorrer el horario
@@ -63,7 +63,7 @@ class Roomie extends Thread{
           }else{
             k++;
           }
-          totalDeTareas--;
+          tareasRestantes--;
           System.out.println(colorPropio  + nombre + " ahora va a usar " + appliances[horario[k]].nombre + RESET);
           //despues de esto iria lo del cambio de las necesidades, solo que se tendria que definir en la clase que herede de Roomie, debido
           //a las variables que defino en la clase que hereda, por ejemplo en el estudiante se define el horario de cada fase del dia
@@ -111,6 +111,7 @@ class Roomie extends Thread{
       int[] horaDelDia = new int[horario.length];
       switch(Reloj.comprobarHora()){
           case "Manana":
+              tareasRestantes = totalDeTareas;
               horaDelDia = Morning; //Se cambian las necesidades del estudiante dependiendo de la fase del dia
               FaseDelDia = "Manana";//Esta cadena es para saber en que fase del dia se encuentra el estudiante
               break;
@@ -141,6 +142,7 @@ class Roomie extends Thread{
 
     public void setTareasInt(int[] Morning, int[]Tarde, int[]Noche){
       this.totalDeTareas = Morning.length + Tarde.length + Noche.length;
+      this.tareasRestantes = totalDeTareas;
     }
 
     public void reporteDelDia(){
