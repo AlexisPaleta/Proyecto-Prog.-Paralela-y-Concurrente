@@ -6,19 +6,19 @@ class Estudiante extends Roomie {
         super(nombre, todo, color);
         Morning = new int[]{
             0, //Cafe
-            1, 1, //Lavadora  
-            2, 2, 2 //Horno
+            1,  //Lavadora  
+            2,  //Horno
         };
 
         Tarde = new int[]{
             0, 0, //Cafe
-            1, 1, 1, //Lavadora  
+            1, //Lavadora  
             2 //Horno
         };
 
         Noche = new int[]{
             0, 0, 0, //Cafe
-            1, 1, //Lavadora  
+            1, //Lavadora  
             2 //Horno
         };
         setTareasInt(this.Morning, this.Tarde, this.Noche);
@@ -32,7 +32,7 @@ class Estudiante extends Roomie {
         while (true) {
             if (horariosProductivos.availablePermits() > 0) {
 
-                System.out.println(colorPropio + "Se va a comprobar la hora del dia por el estudiante " + nombre + " ,la fase del dia es: " + Reloj.comprobarHora() + RESET);
+                System.out.println(colorPropio + "Se va a comprobar la hora del dia por el estudiante " + nombre + " ,la fase del dia es: " + Reloj.comprobarHora()+"Permisos: "+ horariosProductivos.availablePermits() + RESET);
                 try {
                     this.cambiarNecesidades();
                 } catch (InterruptedException e) {

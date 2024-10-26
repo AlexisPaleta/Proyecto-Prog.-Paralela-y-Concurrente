@@ -19,15 +19,17 @@ public class Reloj extends Thread {
                 System.out.println("Son las 5:00 AM, el horario corresponde a la Mañana");
                 cambiarHora("Manana");
                 llenarSemaforos();
-                sleep(8000);
+                sleep(15000);
                 System.out.println("Son las 12:00 PM, el horario corresponde a la Tarde");
                 cambiarHora("Tarde");
-                sleep(8000);
+                llenarSemaforos();
+                sleep(15000);
                 System.out.println("Son las 7:00 PM, el horario corresponde a la Noche");
                 cambiarHora("Noche");
-                sleep(8000);
+                llenarSemaforos();
+                sleep(15000);
                 vaciarSemaforos();
-                sleep(3000);
+                sleep(15000);
                 System.out.println("TODOS SE VAN A DORMIR\n\n");
                 terminoDia();
                 sleep(15000);
@@ -50,7 +52,7 @@ public class Reloj extends Thread {
         //Inicio del dia
         for (int i = 0; i < residentes.length; i++) {
             Semaphore temp = residentes[i].getSemaforoDiario();
-            temp.release(4);
+            temp.release(1);
         }
     }
 

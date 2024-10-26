@@ -49,7 +49,7 @@ class Roomie extends Thread {
             System.out.println(colorPropio + nombre + " trata de usar " + appliances[horario[k]].nombre + RESET);
             necesidades[k].acquire();//Se adquiere el semaforo del electrodomestico que se va a utilizar
             System.out.println(colorPropio + nombre + " esta usando " + appliances[horario[k]].nombre + "\nNow sleep" + RESET);
-            sleep(2000);//se simula un tiempo de uso
+            sleep(500);//se simula un tiempo de uso
 
             System.out.println(colorPropio + nombre + " termina de usar " + appliances[horario[k]].nombre + RESET);
             if (horario[k] != 0) {//Si el electrodomestico que se uso no fue el cafe, entonces se libera el semaforo
@@ -59,7 +59,8 @@ class Roomie extends Thread {
                 necesidades[k].release();
             }
 
-            if (k == necesidades.length - 1) { //Si ya se recorrio todo el horario, se reinicia el indice
+            if (k >= necesidades.length - 1) { //Si ya se recorrio todo el horario, se reinicia el indice
+                horariosProductivos.acquire();
                 k = 0;
             } else {
                 k++;
@@ -104,8 +105,6 @@ class Roomie extends Thread {
             System.out.println(colorPropio + "El horario de " + nombre + " no ha cambiado, el horario del dia es: " + Reloj.comprobarHora() + RESET);
             return;
         } else {
-
-            horariosProductivos.acquire();
             int[] horaDelDia = new int[horario.length];
             switch (Reloj.comprobarHora()) {
                 case "Manana":
