@@ -15,16 +15,27 @@ class Departamento{
 
         //Creacion de los electromesticos disponibles
         appliances = new Electrodomestico[]{
-            new Cafetera(5),
-            new Electrodomestico("Lavadora"),
-            new Electrodomestico("Horno")
+            new Cafetera(5), // 0
+            new Electrodomestico("Lavadora"), //1
+            new Electrodomestico("Horno"),  //2
+            new Electrodomestico("Secadora"),   //3
+            new Electrodomestico("Licuadora"),  //4
+            new Electrodomestico("Tostadora"),  //5
+            new Electrodomestico("Lavavajillas"),   //6
+            new Electrodomestico("Plancha"), //7
+            new Electrodomestico("Estufa")  //8
         };
 
         // Creacion de los residentes de la vivienda
         residentes = new Roomie[] {
             new Estudiante("Juan", appliances, colores[1]),
             new Estudiante("Pedro", appliances, colores[2]),
-            new Estudiante("Elisa", appliances, colores[3])
+            new Estudiante("Elisa", appliances, colores[3]),
+            new Estudiante("Clara", appliances, colores[4]),
+            new Trabajador("TRAB1", appliances, colores[5]),
+            new Trabajador("TRAB2", appliances, colores[5]),
+            new TrabajadorRemoto("HOMEOFF1", appliances, colores[6]),
+            new TrabajadorRemoto("HOMEOFF2", appliances, colores[7])
         };
     }
 
