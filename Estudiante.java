@@ -34,7 +34,7 @@ class Estudiante extends Roomie {
         while (true) {
             if (horariosProductivos.availablePermits() > 0) {
 
-                System.out.println(colorPropio + "Se va a comprobar la hora del dia por el estudiante " + nombre + " ,la fase del dia es: " + Reloj.comprobarHora()+"Permisos: "+ horariosProductivos.availablePermits() + RESET);
+                System.out.println(colorPropio + "Se va a comprobar la hora del dia por el estudiante " + nombre + " ,la fase del dia es: " + Reloj.comprobarHora() + RESET);
                 try {
                     this.cambiarNecesidades();
                 } catch (InterruptedException e) {

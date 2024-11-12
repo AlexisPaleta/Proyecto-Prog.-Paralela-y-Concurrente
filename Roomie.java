@@ -105,6 +105,7 @@ class Roomie extends Thread {
             System.out.println(colorPropio + "El horario de " + nombre + " no ha cambiado, el horario del dia es: " + Reloj.comprobarHora() + RESET);
             return;
         } else {
+            k = 0;
             int[] horaDelDia = new int[horario.length];
             switch (Reloj.comprobarHora()) {
                 case "Manana":
