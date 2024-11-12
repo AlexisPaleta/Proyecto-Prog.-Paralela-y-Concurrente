@@ -5,20 +5,22 @@ class Estudiante extends Roomie {
     Estudiante(String nombre, Electrodomestico[] todo, String color) {
         super(nombre, todo, color);
         Morning = new int[]{
-            0, //Cafe
+            0,  //Cafe
             1,  //Lavadora  
-            2,  //Horno
+            3,  //Secadora
+            5,  //Tostadora
+            7,  //Plancha
         };
 
         Tarde = new int[]{
-            0, 0, //Cafe
-            1, //Lavadora  
-            2 //Horno
+            2, //Horno
+            4, //Licuadora  
+            6 //Lavavajillas
         };
 
         Noche = new int[]{
-            0, 0, 0, //Cafe
-            1, //Lavadora  
+            0, 0, //Cafe
+            8, //Estufa  
             2 //Horno
         };
         setTareasInt(this.Morning, this.Tarde, this.Noche);
