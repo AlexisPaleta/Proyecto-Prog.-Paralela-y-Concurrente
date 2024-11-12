@@ -66,7 +66,7 @@ class Roomie extends Thread {
                 k++;
             }
             tareasRestantes--;
-            System.out.println(colorPropio + nombre + " ahora va a usar " + appliances[horario[k]].nombre + "Le restan estas tareas: " + tareasRestantes + RESET);
+            System.out.println(colorPropio + nombre + " ahora va a usar " + appliances[horario[k]].nombre + "\nLe restan estas tareas: " + tareasRestantes + RESET);
             //despues de esto iria lo del cambio de las necesidades, solo que se tendria que definir en la clase que herede de Roomie, debido
             //a las variables que defino en la clase que hereda, por ejemplo en el estudiante se define el horario de cada fase del dia
             //y es necesario que el resto del metodo se ejecute en el estudiante
@@ -94,7 +94,7 @@ class Roomie extends Thread {
             necesidades[i] = todo[Morning[i]].getSemaphore(); //Al inicio se establece el horario de la mañana
         }
 
-        System.out.println(color + "El horario de " + nombre + "es : " + Arrays.toString(horario) + RESET); //Se imprime el horario del estudiante
+        System.out.println(color + "El horario de " + nombre + " es : " + Arrays.toString(horario) + RESET + "\n"); //Se imprime el horario del estudiante
     }
 
     public void cambiarNecesidades() throws InterruptedException {//Se cambian las necesidades del estudiante dependiendo de la fase del dia, este metodo se ejecuta
@@ -102,7 +102,7 @@ class Roomie extends Thread {
         //pero si el reloj cambia de fase, entonces se cambian las necesidades del estudiante
 
         if (Reloj.comprobarHora().equals(FaseDelDia)) {
-            System.out.println(colorPropio + "El horario de " + nombre + " no ha cambiado, el horario del dia es: " + Reloj.comprobarHora() + RESET);
+            System.out.println(colorPropio + "\nEl horario de " + nombre + " no ha cambiado, el horario del dia es: " + Reloj.comprobarHora() + RESET);
             return;
         } else {
             k = 0;
