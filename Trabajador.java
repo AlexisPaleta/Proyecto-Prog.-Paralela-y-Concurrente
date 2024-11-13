@@ -12,7 +12,9 @@ class Trabajador extends Roomie {
         };
 
         Tarde = new int[]{
-            6 // Lavavajillas
+            6,  //Lavavajillas
+            2, //Horno
+            1
         };
 
         Noche = new int[]{

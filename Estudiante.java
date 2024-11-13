@@ -15,7 +15,8 @@ class Estudiante extends Roomie {
         Tarde = new int[]{
             2, //Horno
             4, //Licuadora  
-            6 //Lavavajillas
+            6, 6, //Lavavajillas
+            1
         };
 
         Noche = new int[]{

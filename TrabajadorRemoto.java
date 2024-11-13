@@ -14,7 +14,8 @@ class TrabajadorRemoto extends Roomie {
 
         Tarde = new int[]{
             6,  //Lavavajillas
-            2 //Horno
+            2, //Horno
+            1, 1, 1
         };
 
         Noche = new int[]{
