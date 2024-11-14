@@ -48,10 +48,11 @@ class Roomie extends Thread {
         try {
             System.out.println(colorPropio + nombre + " trata de usar " + appliances[horario[k]].nombre + RESET);
             necesidades[k].acquire();//Se adquiere el semaforo del electrodomestico que se va a utilizar
-            System.out.println(colorPropio + nombre + " esta usando " + appliances[horario[k]].nombre + "\nNow sleep" + RESET);
+            System.out.println(colorPropio + "\n" + nombre + " esta usando " + appliances[horario[k]].nombre + "\nUsando..." + RESET);
             sleep(500);//se simula un tiempo de uso
 
-            System.out.println(colorPropio + nombre + " termina de usar " + appliances[horario[k]].nombre + RESET);
+            System.out.println(colorPropio + nombre + " termino de usar " + appliances[horario[k]].nombre + RESET);
+
             if (horario[k] != 0) {//Si el electrodomestico que se uso no fue el cafe, entonces se libera el semaforo
                 //la idea de que cuando sea 0, o sea el cafe no libere el semaforo directamente el roomie, es porque el cafe 
                 //se va rellenando solo, por lo que no es necesario que el roomie lo libere, ademas de que este recurso puede ser adquirido
@@ -61,12 +62,10 @@ class Roomie extends Thread {
 
             if (k >= necesidades.length - 1) { //Si ya se recorrio todo el horario, se reinicia el indice
                 horariosProductivos.acquire();
-                k = 0;
             } else {
                 k++;
             }
             tareasRestantes--;
-            System.out.println(colorPropio + nombre + " ahora va a usar " + appliances[horario[k]].nombre + "\nLe restan estas tareas: " + tareasRestantes + RESET);
             //despues de esto iria lo del cambio de las necesidades, solo que se tendria que definir en la clase que herede de Roomie, debido
             //a las variables que defino en la clase que hereda, por ejemplo en el estudiante se define el horario de cada fase del dia
             //y es necesario que el resto del metodo se ejecute en el estudiante
@@ -144,6 +143,6 @@ class Roomie extends Thread {
     }
 
     public void reporteDelDia() {
-        System.err.println("Soy " + nombre + " y no pude hacer " + tareasRestantes + " actividades el dia de hoy.");
+        System.err.println(colorPropio + "Soy " + nombre + " y no pude hacer " + tareasRestantes + " actividades el dia de hoy." + RESET);
     }
 }
