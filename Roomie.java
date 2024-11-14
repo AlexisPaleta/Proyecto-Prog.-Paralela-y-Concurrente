@@ -48,10 +48,11 @@ class Roomie extends Thread {
         try {
             System.out.println(colorPropio + nombre + " trata de usar " + appliances[horario[k]].nombre + RESET);
             necesidades[k].acquire();//Se adquiere el semaforo del electrodomestico que se va a utilizar
+            tareasRestantes--;
             System.out.println(colorPropio + "\n" + nombre + " esta usando " + appliances[horario[k]].nombre + "\nUsando..." + RESET);
             sleep(500);//se simula un tiempo de uso
 
-            System.out.println(colorPropio + nombre + " termino de usar " + appliances[horario[k]].nombre + RESET);
+            System.out.println(colorPropio + nombre + " termino de usar " + appliances[horario[k]].nombre + "Le restan " + tareasRestantes + RESET);
 
             if (horario[k] != 0) {//Si el electrodomestico que se uso no fue el cafe, entonces se libera el semaforo
                 //la idea de que cuando sea 0, o sea el cafe no libere el semaforo directamente el roomie, es porque el cafe 
@@ -59,13 +60,14 @@ class Roomie extends Thread {
                 //por varios roomies a la vez, en caso de que el recurso este disponible claro
                 necesidades[k].release();
             }
+            
 
             if (k >= necesidades.length - 1) { //Si ya se recorrio todo el horario, se reinicia el indice
                 horariosProductivos.acquire();
             } else {
                 k++;
             }
-            tareasRestantes--;
+            
             //despues de esto iria lo del cambio de las necesidades, solo que se tendria que definir en la clase que herede de Roomie, debido
             //a las variables que defino en la clase que hereda, por ejemplo en el estudiante se define el horario de cada fase del dia
             //y es necesario que el resto del metodo se ejecute en el estudiante
