@@ -94,8 +94,7 @@ class Roomie extends Thread {
         for (int i = 0; i < horario.length; i++) {
             necesidades[i] = todo[Morning[i]].getSemaphore(); //Al inicio se establece el horario de la mañana
         }
-
-        System.out.println(color + "El horario de " + nombre + " es : " + Arrays.toString(horario) + RESET + "\n"); //Se imprime el horario del estudiante
+        imprimirHorario();
     }
 
     public void cambiarNecesidades() throws InterruptedException {//Se cambian las necesidades del estudiante dependiendo de la fase del dia, este metodo se ejecuta
@@ -130,8 +129,7 @@ class Roomie extends Thread {
             }
 
             horario = horaDelDia;
-
-            System.out.println(colorPropio + "El horario de " + nombre + " ahora es : " + Arrays.toString(horario) + RESET);
+            imprimirHorario();
         }
     }
 
@@ -146,5 +144,17 @@ class Roomie extends Thread {
 
     public void reporteDelDia() {
         System.err.println(colorPropio + "Soy " + nombre + " y no pude hacer " + tareasRestantes + " actividades el dia de hoy." + RESET);
+    }
+
+    public void imprimirHorario(){
+        System.out.print(colorPropio + "El horario de " + nombre + " ahora es : [");
+
+        for (int i=0; i<horario.length; i++){
+            System.out.print(appliances[horario[i]].nombre);
+            if ((i+1)==horario.length)
+                System.out.println("], en ese orden específico" + RESET);
+            else
+                System.out.print(", ");
+        }
     }
 }

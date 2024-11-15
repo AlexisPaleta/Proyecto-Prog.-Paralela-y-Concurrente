@@ -67,7 +67,6 @@ public class Reloj extends Thread {
     public void terminoDia() {
         for (int i = 0; i < residentes.length; i++) {
             residentes[i].reporteDelDia();
-
         }
     }
 }
